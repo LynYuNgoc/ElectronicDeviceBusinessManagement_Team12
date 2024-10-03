@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - Tech Store</title>
     <link rel="stylesheet" href="signin.css">
+    <script src="signin.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
     <main>
         <section class="signin-form">
             <h2>Welcome Back</h2>
-            <form action="submit_signin.php" method="POST">
+            <form id="signinForm">
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
@@ -28,7 +29,7 @@
                 <button type="submit" class="btn">Sign in</button>
                 <p class="terms">By signing in, you agree to our <a href="terms-of-service.html" target="_blank">terms of service</a> and <a href="privacy-policy.html" target="_blank">privacy policy</a>.</p>
             </form>
-            <p class="signup-link">Don't have an account? <a href="signUp.html">Sign up</a>.</p>
+            <p class="signup-link">Don't have an account? <a href="SignUp.html">Sign up</a>.</p>
         </section>
     </main>
 </body>

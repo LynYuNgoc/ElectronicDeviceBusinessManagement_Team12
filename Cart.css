@@ -47,6 +47,47 @@ header nav ul {
     gap: 15px;
 }
 
+
+/* Search Bar */
+header .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+    position: relative;
+}
+
+header .search-bar input {
+    padding: 8px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+header .search-bar:hover input {
+    width: 300px;
+    opacity: 1;
+    padding-left: 15px;
+}
+
+header .search-bar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+header .search-bar button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
 header nav ul li a {
     color: white;
     text-decoration: none;
