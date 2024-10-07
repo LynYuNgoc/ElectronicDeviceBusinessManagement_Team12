@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="D:\Project\CNPMNC\Front-end\Assets\Style\Product-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Tech Store</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="D:\Project\CNPMNC\Front-end\Pages\Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="auth-links">
+            <a href="D:\Project\CNPMNC\Front-end\Pages\Cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="D:\Project\CNPMNC\Front-end\Pages\signUp.html" class="signup">Sign Up</a>
+            <a href="D:\Project\CNPMNC\Front-end\Pages\SignIn.html" class="signin">Sign In</a>
+        </div>
+    </header>
+    
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="product-detail-container">
+            <!-- Left Section: Product Image -->
+            <div class="product-images">
+                <div class="image-placeholder">Image Placeholder</div>
+            </div>
+
+            <!-- Right Section: Product Info -->
+            <div class="product-info">
+                <h2>Product Name</h2>
+                <h3>Mô tả sản phẩm</h3>
+
+                <p class="product-price">$999</p>
+
+                <!-- Product Quantity -->
+                <div class="product-quantity">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                </div>
+
+                <!-- Product Color (If available) -->
+                <div class="product-color">
+                    <label for="color">Color:</label>
+                    <select id="color" name="color">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="black">Black</option>
+                    </select>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="product-description">
+            <h3>Product Details</h3>
+            <p>This is a detailed description of the product, explaining the features and benefits.</p>
+        </div>
+    </section>
+    <section class="reviews-section">
+        <h3>Customer Reviews</h3>
+        
+        <div class="review-form">
+            <h4>Leave a Comment</h4>
+            <textarea placeholder="Write your comment here..." rows="4"></textarea>
+            
+            <div class="rating">
+                <label for="stars">Rate this product:</label>
+                <select id="stars">
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+            </div>
+            
+            <button class="submit-review-btn">Submit</button>
+        </div>
+    
+        <div class="reviews-list">
+            <h4>Reviews</h4>
+            <div class="review-item">
+                <p><strong>John Doe:</strong> Great product! Highly recommend it.</p>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+            </div>
+            <div class="review-item">
+                <p><strong>Jane Smith:</strong> It's okay, but I expected better quality.</p>
+                <p>Rating: ⭐⭐⭐</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Tech Store - All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
