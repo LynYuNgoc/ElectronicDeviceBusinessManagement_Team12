@@ -1,0 +1,264 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+header nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 5px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 2; /* Chiếm không gian giữa header */
+    justify-content: center; /* Căn giữa thanh tìm kiếm */
+}
+
+header .search-bar input {
+    padding: 8px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 300px;
+    padding-left: 15px;
+    transition: border 0.3s ease;
+}
+
+header .search-bar input:focus {
+    border: 1px solid #4CAF50;
+}
+
+header .search-bar button {
+    background-color: transparent;
+    border: 1px solid transparent; 
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 50%; 
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+}
+
+header .search-bar button:hover {
+    background-color: white; 
+    border-color: #4CAF50; 
+    color: #4CAF50; 
+}
+
+header .auth-links {
+    display: flex;
+    gap: 15px;
+    flex: 1; 
+    justify-content: flex-end; 
+}
+
+header .auth-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header .auth-links a:hover {
+    background-color: white;
+    color: #333;
+}
+
+
+/* Product Detail Section */
+.product-detail {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-detail-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.product-images {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 300px;
+    height: 300px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.product-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.product-quantity,
+.product-color {
+    margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+/* Product Description */
+.product-description {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.product-description h3 {
+    margin-bottom: 10px;
+}
+
+.product-description p {
+    line-height: 1.6;
+}
+.reviews-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.reviews-section h3 {
+    margin-bottom: 20px;
+}
+
+.review-form {
+    margin-bottom: 20px;
+}
+
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.rating label {
+    margin-right: 10px;
+}
+
+.submit-review-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-review-btn:hover {
+    background-color: #45a049;
+}
+
+.reviews-list {
+    margin-top: 20px;
+}
+
+.review-item {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review-item p {
+    margin: 5px 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    top: 100vh;
+    width: 100%;
+}
