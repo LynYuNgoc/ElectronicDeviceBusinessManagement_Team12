@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Admin Dashboard</title>
+    <link rel="stylesheet" href="../../Assets/Style/Admin/QuanLyNguoiDung.css">
+    <script src="../../Assets/Scrips/Admin/QuanLyNguoiDung.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="../Admin/IndexAdmin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="../Admin/ItemManagement.html"><i class="fas fa-box"></i> Quản lý sản phẩm</a></li>
+                <li><a href="../Admin/UserManagement.html"><i class="fas fa-users"></i> Quản lý khách hàng</a></li>
+                <li><a href="#order-management"><i class="fas fa-file-invoice"></i> Quản lý đơn hàng</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Cài đặt</a></li>
+                <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <header>
+                <h1>Quản lý người dùng</h1>
+            </header>
+
+            <section id="user-management">
+                <h2>Danh sách người dùng</h2>
+            
+                <!-- Nút thêm người dùng mới -->
+                <button class="btn-add" onclick="showAddUserForm()">Thêm người dùng</button>
+            
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm người dùng..." id="searchUser">
+                    <button class="btn-search" onclick="searchUser()">Tìm kiếm</button>
+                </div>
+            
+                <!-- User Table -->
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- Dữ liệu người dùng sẽ được thêm vào đây thông qua JavaScript -->
+                    </tbody>
+                </table>
+            
+                <!-- Form để thêm người dùng mới -->
+                <div id="addUserForm" class="form-popup" style="display: none;">
+                    <h3>Thêm người dùng mới</h3>
+                    <input type="text" id="newFullname" placeholder="Họ tên" required>
+                    <input type="email" id="newEmail" placeholder="Email" required>
+                    <input type="text" id="newPhone" placeholder="Số điện thoại" required>
+                    <button onclick="addUser()">Lưu</button>
+                    <button onclick="closeAddUserForm()">Đóng</button>
+                </div>
+            </section>            
+        </div>
+    </div>
+</body>
+</html>
