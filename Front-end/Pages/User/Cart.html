@@ -11,28 +11,40 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <div class="logo">
-            <a href="../../Pages/User/Index.html">
-                <h1>Tech Store</h1>
-            </a>
-        </div>
-            
-        <div class="search-bar">
-            <input class="field" type="text" placeholder="Search..."/>
-            <button>
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+        <div class="container">
+            <!-- Logo bên trái -->
+            <div class="logo">
+                <a href="../../Pages/User/Index.html">
+                    <img src="/Front-end/Image/Logo.png" alt="Logo">
+                </a>
+            </div>
     
-        <nav>
-            <ul>
-                <li><a href="../../Pages/User/Cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                <li><a href="../../Pages/User/signUp.html" class="signup">Sign Up</a></li>
-                <li><a href="../../Pages/User/SignIn.html" class="signin">Sign In</a></li>
-            </ul>
-        </nav>
+            <!-- Thanh search ở giữa -->
+            <div class="search-bar">
+                <input class="field" type="text" placeholder="Search..."/>
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <!-- Các liên kết và biểu tượng bên phải -->
+            <div class="header-menu">
+                <ul>
+                    <li><a href="#">Đà Nẵng <i class="fa-solid fa-sort-down"></i></a></li>
+                    <li><a href="#">Lịch sử mua hàng</a></li>
+                    <li class="cart-icon">
+                        <a href="../../Pages/User/Cart.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="auth-links" id="authLinks">
+                    <a href="../../Pages/User/signUp.html" class="signup">Sign Up</a>
+                    <a href="../../Pages/User/SignIn.html" class="signin">Sign In</a>
+                </div>
+            </div>
+        </div>
     </header>
     
 

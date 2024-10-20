@@ -71,6 +71,7 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    margin-bottom: 20px; /* Khoảng cách dưới header */
 }
 
 h2 {
@@ -86,27 +87,49 @@ h2 {
     padding: 10px;
     cursor: pointer;
     margin-right: 10px;
+    border-radius: 5px; /* Bo góc cho nút */
 }
 
 .btn-add:hover, .btn-search:hover {
     background-color: #218838;
 }
 
+/* Search Bar */
+.search-bar {
+    margin-bottom: 20px; /* Khoảng cách giữa search bar và bảng sản phẩm */
+    display: flex; /* Sử dụng flex để căn chỉnh các phần tử trong search bar */
+}
+
+.search-bar input {
+    flex-grow: 1; /* Làm cho input chiếm không gian còn lại */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
 /* Product Table */
 .product-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng bóng cho bảng */
 }
 
 .product-table th, .product-table td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
+    vertical-align: middle; /* Căn giữa dọc cho nội dung */
 }
 
 .product-table th {
     background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f1f1f1; /* Hiệu ứng hover cho hàng */
 }
 
 /* Form Popup */
@@ -120,12 +143,23 @@ h2 {
     background-color: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 400px; /* Cố định kích thước form */
+    border-radius: 10px; /* Bo góc form */
 }
 
-.form-popup input {
+.form-popup input, .form-popup textarea {
     margin-bottom: 10px;
     padding: 8px;
     width: calc(100% - 16px);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-popup textarea {
+    resize: vertical;
+    min-height: 80px; /* Đặt chiều cao tối thiểu cho textarea */
 }
 
 .form-popup button {
@@ -134,19 +168,13 @@ h2 {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
 }
 
 .form-popup button:hover {
     background-color: #0056b3;
-}
-
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
 }
 
 /* Responsive adjustments */
@@ -161,4 +189,13 @@ footer {
         margin-left: 0;
     }
 }
-    
+
+/* Footer styling */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
