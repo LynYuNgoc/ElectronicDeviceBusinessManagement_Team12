@@ -31,14 +31,14 @@
             <section id="product-management">
                 <h2>Danh sách sản phẩm</h2>
                 
-                <!-- Nút thêm sản phẩm mới -->
-                <button class="btn-add" onclick="showAddItemForm()">Thêm sản phẩm</button>
-                
                 <!-- Search Bar -->
                 <div class="search-bar">
                     <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchItem">
                     <button class="btn-search" onclick="searchItem()">Tìm kiếm</button>
                 </div>
+
+                <!-- Nút thêm sản phẩm mới -->
+                <button class="btn-add" onclick="showAddItemForm()">Thêm sản phẩm</button>
                 
                 <!-- Product Table -->
                 <table class="product-table">
@@ -47,28 +47,27 @@
                             <th>ID</th>
                             <th>Tên sản phẩm</th>
                             <th>Giá</th>
-                            <th>Hành động</th>
+                            <th>Danh mục</th>
+                            <th>Ảnh</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody id="productTableBody">
                         <!-- Dữ liệu sản phẩm sẽ được thêm vào đây thông qua JavaScript -->
                     </tbody>
                 </table>
-                                
+
                 <!-- Form thêm sản phẩm -->
                 <div id="addProductForm" class="form-popup">
-                        <h3>Thêm sản phẩm mới</h3>
+                    <h3>Thêm sản phẩm mới</h3>
                     <input type="text" id="productName" placeholder="Tên sản phẩm" required>
                     <input type="number" id="productPrice" placeholder="Giá sản phẩm" required>
                     <input type="text" id="productDescription" placeholder="Mô tả sản phẩm">
                     <input type="text" id="productCategory" placeholder="Danh mục sản phẩm" required>
-                    <input type="file" id="productImage" accept="image/*" required> <!-- Trường tải lên hình ảnh -->
+                    <input type="file" id="productImage" accept="image/*" required>
                     <button onclick="addProduct()">Lưu</button>
                     <button onclick="closeAddItemForm()">Đóng</button>
                 </div>
-
-
-
             </section>
         </div>
     </div>

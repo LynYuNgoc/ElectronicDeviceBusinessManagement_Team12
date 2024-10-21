@@ -6,83 +6,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Store</title>
     <link rel="stylesheet" href="../../Assets/Style/User/Style.css">
-    <script src="../../Assets/Scrips/User/index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
 </head>
 <body>
 
     <!-- Header Section -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Tech Store</h1>
-            </div>
-            <div class="search-bar">
-                <input class="field" type="text" placeholder="Search..."/>
-                <button>
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
+    <!-- Header Section -->
+<header>
+    <div class="container">
+        <!-- Logo bên trái -->
+        <div class="logo">
+            <a href="../../Pages/User/Index.html">
+                <img src="/Front-end/Image/Logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <!-- Thanh search ở giữa -->
+        <div class="search-bar">
+            <input class="field" type="text" placeholder="Search..."/>
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <!-- Các liên kết và biểu tượng bên phải -->
+        <div class="header-menu">
+            <ul>
+                <li><a href="#">Đà Nẵng <i class="fa-solid fa-sort-down"></i></a></li>
+                <li><a href="#">Lịch sử mua hàng</a></li>
+                <li class="cart-icon">
+                    <a href="../../Pages/User/Cart.html">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>
             <div class="auth-links" id="authLinks">
-                <a href="../../Pages/User/Cart.html"></i></a>
                 <a href="../../Pages/User/signUp.html" class="signup">Sign Up</a>
                 <a href="../../Pages/User/SignIn.html" class="signin">Sign In</a>
             </div>
-
         </div>
-        
-    </header>
-    
-    <!-- User Login/Avatar Menu -->
-  <div id="userContainer" style="display: none;">
-    <span id="username" style="cursor: pointer;">Username</span> <!-- Tên người dùng -->
-    <div id="avatarMenu" style="display: none;">
-      <h3>User Menu</h3>
-      <ol>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#" id="logout">Logout</a></li>
-      </ol>
     </div>
-  </div>
-     
-
+</header>
+        
+    <!-- User Login/Avatar Menu -->
+    <div id="userContainer" style="display: none;">
+        <div class="profile-dropdown">
+            <div class="profile-dropdown-btn">
+                <div class="profile-img">
+                    <i class="fa-solid fa-circle"></i>
+                </div>
+                <span id="username" style="cursor: pointer;">Username <i class="fa-solid fa-angle-down"></i></span>
+            </div>
+    
+            <ul id="avatarMenu" class="profile-dropdown-list" style="display: none;">
+                <li class="profile-dropdown-list-item">
+                    <a href="../../Pages/User/Profile.html">
+                        <i class="fa-regular fa-user"></i>
+                        Profile
+                    </a>
+                </li>
+                <li class="profile-dropdown-list-item">
+                    <a href="../../Pages/User/Orders.html">
+                        <i class="fa-solid fa-box"></i>
+                        Orders
+                    </a>
+                </li>
+                <li class="profile-dropdown-list-item">
+                    <a href="#" id="logout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
     <!-- Banner Section -->
     <section class="banner">
-        <div class="container">
-            <h2>Latest Technology at Your Fingertips</h2>
-            <p>Shop the newest tech products today!</p>
+        <div class="container">      
         </div>
     </section>
     
     <main class="container">
-        <!-- Sidebar and Promotions Section -->
-        <section class="product-section">
-            <div class="product-container">
-                <div class="product-sidebar">
-                    <h3>Danh Mục Sản Phẩm</h3>
-                    <ul>
-                        <li>Điện Thoại</li>
-                        <li>Laptop</li>
-                        <li>Tablet</li>
-                        <li>Phụ Kiện</li>
-                    </ul>
-                </div>
-                <div class="additional-box">
-                    <h3>Featured Deal</h3>
-                    <p>Check out our latest promotions and exclusive offers!</p>
-                </div>
+           <!-- Sidebar and Promotions Section -->
+    <section class="product-section">
+        <div class="product-container">
+            <!-- Sidebar -->
+            <div class="product-sidebar">
+                <h3>Danh Mục Sản Phẩm</h3>
+                <ul>
+                    <li class="has-submenu" data-category="phones" data-expanded="false">Điện thoại</li>
+                    <li class="has-submenu" data-category="laptops" data-expanded="false">Laptop</li>
+                    <li class="has-submenu" data-category="watches" data-expanded="false">Đồng hồ</li>
+                    <li class="has-submenu" data-category="tablets" data-expanded="false">Tablet</li>
+                    <li class="has-submenu" data-category="headphones" data-expanded="false">Headphone</li>
+                    <li class="has-submenu" data-category="more" data-expanded="false">More</li>
+                </ul>
             </div>
-        </section>
+            <!------------------------------------------Slider-------------------------------------------->
+            <div class="Slider">
+                <div class="container">
+                    <div class="Slider-content">
+                        <div class="Slider-content-left">
+                            <div class="Slider-content-left-top">
+                                <img src="/Front-end/Image/Image1.webp" alt="">
+                                <img src="/Front-end/Image/Image2.webp" alt="">
+                                <img src="/Front-end/Image/Image3.webp" alt="">
+                                <img src="/Front-end/Image/Image4.webp" alt="">
+                                <img src="/Front-end/Image/Image5.webp" alt="">
 
-        <!-- Featured Products Section -->
-<section class="featured-products">
-    <h3>Sản Phẩm Nổi Bật</h3>
-    <div class="product-grid" id="productGrid">
-        <!-- Các sản phẩm sẽ được thêm vào đây thông qua JavaScript -->
-    </div>
-</section>
+                                <div class="Slider-content-left-top-btn">
+                                    <div class="Slider-content-left-top-img-btn">
+                                        <i class="fa-solid fa-circle-chevron-left"></i>
+                                    </div>
+                                    <div class="Slider-content-left-top-img-btn">
+                                        <i class="fa-solid fa-circle-chevron-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Slider-content-left-bottom">
+                                <li>Tiêu đề 1</li>
+                                <li>Tiêu đề 1</li>
+                                <li>Tiêu đề 1</li>
+                                <li>Tiêu đề 1</li>
+                                <li>Tiêu đề 1</li>
+                                <li>Tiêu đề 1</li>
+                            </div>
+                        </div>
+                        <div class="Slider-content-Right">
+                            <li><a href=""><img src="/Front-end/Image/m55-10990-right-banner.webp"></a></li>
+                            <li><a href=""><img src="/Front-end/Image/m55-10990-right-banner.webp"></a></li>
+                            <li><a href=""><img src="/Front-end/Image/m55-10990-right-banner.webp"></a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
 
+                <!-- Featured Products Section -->
+                <section class="featured-products">
+                    <h3>Sản Phẩm Nổi Bật</h3>
+                    <!-- Swiper Container -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper" id="productGrid">
+                            <!-- Các sản phẩm sẽ được thêm vào đây thông qua JavaScript -->
+                        </div>
+                        <!-- Nút điều hướng -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <!-- Pagination (nếu cần) -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
     </main>
 
     <!-- Footer Section -->
@@ -94,5 +172,9 @@
             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+
+    <script src="../../Assets/Scrips/User/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+
 </body>
 </html>

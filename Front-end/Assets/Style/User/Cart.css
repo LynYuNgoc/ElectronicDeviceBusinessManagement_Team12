@@ -28,71 +28,114 @@ body {
     flex-direction: column;
 }
 
+/* Header */
 header {
-    background-color: #333;
+    background-color: #34495e; /* Màu xanh đậm hơn */
     color: white;
-    padding: 15px;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Tạo hiệu ứng đổ bóng nhẹ hơn */
+}
+
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-header h1 {
-    margin-left: 20px;
+/* Logo */
+.logo img {
+    height: 80px; /* Chiều cao logo nhỏ hơn để cân đối hơn */
+    width: auto;
 }
-
-header nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 15px;
-}
-
 
 /* Search Bar */
 header .search-bar {
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex: 2;
     position: relative;
 }
 
 header .search-bar input {
-    padding: 8px;
+    padding: 10px 15px;
     border-radius: 25px;
     border: 1px solid #ccc;
     outline: none;
-    width: 0;
-    opacity: 0;
-    transition: width 0.3s ease, opacity 0.3s ease;
+    width: 300px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    background-color: #ecf0f1; /* Màu nền sáng cho input */
+    font-size: 14px; /* Kích thước chữ nhỏ hơn */
 }
 
-header .search-bar:hover input {
-    width: 300px;
-    opacity: 1;
-    padding-left: 15px;
+header .search-bar input:focus {
+    border-color: #2980B9; /* Màu xanh khi focus */
+    background-color: #fff; /* Màu nền trắng khi focus */
 }
 
 header .search-bar button {
-    background-color: transparent;
+    background-color: #2980B9; /* Màu nền nút tìm kiếm */
     border: none;
     cursor: pointer;
-    font-size: 1.5rem;
-    padding: 8px;
-    border-radius: 50%;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 25px; /* Bo góc cho nút */
+    color: white; /* Màu chữ trắng */
     transition: background-color 0.3s ease;
 }
 
 header .search-bar button:hover {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #3498db; /* Màu xanh nhạt hơn khi hover */
 }
 
-header nav ul li a {
+/* Header Menu */
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.header-menu ul li a {
     color: white;
     text-decoration: none;
-    padding: 10px;
-    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header-menu ul li a:hover {
+    background-color: #2980B9; /* Nền xanh khi hover */
+}
+
+/* Auth Links */
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #34495E; /* Màu nền đậm hơn */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-links a:hover {
+    background-color: #2980B9; /* Màu xanh khi hover */
 }
 
 .cart-section {

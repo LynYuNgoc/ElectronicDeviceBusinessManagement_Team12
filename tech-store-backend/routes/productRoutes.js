@@ -49,6 +49,20 @@ router.post('/add', upload.single('image'), async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req, res) => {
+    const productId = req.params.id;
+    try {
+        const result = await Product.findByIdAndDelete(productId);
+        if (!result) {
+            return res.status(404).json({ message: 'Sản phẩm không tồn tại.' });
+        }
+        res.status(200).json({ message: 'Sản phẩm đã được xóa thành công.' });
+    } catch (error) {
+        res.status(500).json({ message: 'Lỗi server.' });
+    }
+});
+
+
 // Lấy danh sách tất cả sản phẩm
 router.get('/', async (req, res) => {
     try {
