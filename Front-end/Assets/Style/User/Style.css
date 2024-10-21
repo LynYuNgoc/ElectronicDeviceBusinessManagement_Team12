@@ -120,7 +120,67 @@ header .search-bar button:hover {
 .auth-links a:hover {
     background-color: #2980B9; /* Màu xanh khi hover */
 }
+/*--------------------------------User-container--------------------------------*/
+/* User avatar và dropdown (bên phải) */
+#userContainer {
+    position: absolute;
+    top: 40px;
+    right: 30px; /* Canh bên phải */
+    display: flex;
+    align-items: center;
+}
 
+.profile-dropdown-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.profile-img {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.profile-dropdown-list {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+}
+
+.profile-dropdown-list-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-dropdown-list-item a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown-list-item a i {
+    margin-right: 10px;
+}
+
+.profile-dropdown-list-item:last-child {
+    border-bottom: none;
+}
+
+.profile-dropdown-btn-span{
+    color: #000;
+}
 /*--------------------------------banner--------------------------------*/
 .banner {
     background-image: url('/Front-end/Image/Tech.png'); /* Đường dẫn tới hình ảnh */
@@ -225,6 +285,7 @@ header .search-bar button:hover {
     margin-top: 10px; /* Khoảng cách trên tiêu đề */
     font-size: 16px; /* Kích thước chữ cho tiêu đề */
 }
+
 /*--------------------------------Slider--------------------------------*/
 .Slider li {
     list-style: none;
@@ -251,6 +312,7 @@ header .search-bar button:hover {
     height: auto; /* Giữ tỷ lệ khung hình */
     max-height: 100%; /* Giới hạn chiều cao tối đa nếu cần */
     object-fit: cover; /* Cắt hình ảnh để vừa với khung chứa */
+    transition: transform 5s ease-in-out; /* Tạo chuyển động mượt mà với thời gian 1 giây */
 }
 
 .Slider-content-left-top-btn {
@@ -324,40 +386,46 @@ header .search-bar button:hover {
     object-fit: cover; /* Hình ảnh sẽ cắt để vừa với khung chứa */
     border-radius: 5px; /* Làm mềm góc hình ảnh */
 }
+
 /*--------------------------------Featured Products--------------------------------*/
-.featured-products {
-    margin-top: 20px;
-    flex: 1; /* Để phần này chiếm không gian còn lại trong product-container */
+.container {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.featured-products h3 {
+.slider-product-one-content-title {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-/* Swiper styles */
-.swiper {
-    width: 100%;
-    padding: 20px 0; /* Khoảng cách trên dưới */
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.slider-product-one-content-title-items {
+    display: flex; /* Sử dụng flexbox để sắp xếp các khung sản phẩm theo hàng ngang */
+    justify-content: space-between; /* Tạo khoảng cách đều giữa các sản phẩm */
+    flex-wrap: wrap; /* Cho phép các khung sản phẩm xuống dòng khi không đủ không gian */
+    height: 300px;
 }
 
 .product-item {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    background-color: #f9f9f9; /* Màu nền cho khung sản phẩm */
+    border: 1px solid #ddd; /* Viền cho khung sản phẩm */
+    border-radius: 5px; /* Bo góc cho khung sản phẩm */
+    padding: 10px; /* Padding bên trong khung sản phẩm */
+    width: 18%; /* Chiều rộng cho từng khung sản phẩm */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khung sản phẩm */
+    margin-bottom: 20px; /* Khoảng cách giữa các hàng sản phẩm */
+    text-align: center; /* Căn giữa nội dung bên trong khung sản phẩm */
 }
 
-.product-item:hover {
-    transform: scale(1.05);
+.product-item img {
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng khung */
+    height: auto; /* Giữ tỷ lệ của ảnh */
 }
+
+.price {
+    font-size: 18px; /* Kích thước chữ cho giá sản phẩm */
+    color: #333; /* Màu sắc cho giá sản phẩm */
+}
+    
 
 /*--------------------------------product-grid--------------------------------*/
 .product-grid {

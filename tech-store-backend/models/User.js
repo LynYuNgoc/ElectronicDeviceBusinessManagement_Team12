@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
     status: { type: Boolean, default: true }, // Thêm trường cho trạng thái người dùng (hoạt động/vô hiệu hóa)
 });
 
-
 // Tạo mô hình User từ schema
 const User = mongoose.model('User', userSchema);
 

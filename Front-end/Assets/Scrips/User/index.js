@@ -7,40 +7,83 @@ const profileDropdownList = document.querySelector(".profile-dropdown-list");
 const btn = document.querySelector(".profile-dropdown-btn");
 const avatarMenu = document.getElementById('avatarMenu');
 
-//slider--------------------------------------------------------------------
-//slider--------------------------------------------------------------------
-const rightbtn = document.querySelector('.fa-circle-chevron-right');
-const leftbtn = document.querySelector('.fa-circle-chevron-left');
-const imgNumbers = document.querySelectorAll('.Slider-content-left-top img'); // Lấy tất cả hình ảnh
-let index = 0;
+// ---------------------------------------------------------------------
+// Slider - Quản lý việc chuyển đổi hình ảnh trong slider
+const rightBtn = document.querySelector('.fa-circle-chevron-right');
+const leftBtn = document.querySelector('.fa-circle-chevron-left');
+const images = document.querySelectorAll('.Slider-content-left-top img');
+let currentIndex = 0; // Vị trí ảnh hiện tại
+const intervalTime = 3000; // Thời gian tự động chuyển ảnh (3 giây)
+let autoMove; // Biến lưu trữ interval
 
-rightbtn.addEventListener("click", function() {
-    index = index + 1;
-    if (index >= imgNumbers.length) { // Nếu chỉ số lớn hơn số lượng hình ảnh, reset lại
-        index = 0;
-    }
-    document.querySelector(".Slider-content-left-top").style.transform = "translateX(-" + index * 100 + "%)";
+// Hàm hiển thị ảnh dựa trên chỉ số
+function showImage(index) {
+    images.forEach((img, i) => {
+        img.style.display = (i === index) ? 'block' : 'none'; // Chỉ hiển thị ảnh hiện tại
+    });
+}
+
+// Ban đầu hiển thị ảnh đầu tiên
+showImage(currentIndex);
+
+// Chuyển đến ảnh tiếp theo
+function moveToNextImage() {
+    currentIndex = (currentIndex + 1) % images.length; // Tăng chỉ số, quay về 0 nếu hết ảnh
+    showImage(currentIndex);
+}
+
+// Chuyển đến ảnh trước đó
+function moveToPreviousImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length; // Giảm chỉ số, quay về ảnh cuối nếu âm
+}
+
+// Xử lý sự kiện nhấn vào các nút chuyển ảnh
+rightBtn.addEventListener('click', moveToNextImage);
+leftBtn.addEventListener('click', moveToPreviousImage);
+
+// Khởi động tự động chuyển ảnh
+function startAutoMove() {
+    autoMove = setInterval(moveToNextImage, intervalTime);
+}
+
+// Dừng tự động chuyển ảnh
+function stopAutoMove() {
+    clearInterval(autoMove);
+}
+
+// Khởi động chuyển ảnh tự động khi trang được tải
+startAutoMove();
+
+// Dừng auto move khi di chuột vào slider
+document.querySelector('.Slider-content-left-top').addEventListener('mouseover', stopAutoMove);
+
+// Khởi động lại auto move khi chuột rời khỏi slider
+document.querySelector('.Slider-content-left-top').addEventListener('mouseleave', startAutoMove);
+
+const imgNumberLi = document.querySelectorAll('.Slider-content-left-bottom li');
+imgNumberLi.forEach(function(image, index) {
+    image.addEventListener("click", function() {
+        document.querySelector('.Slider-content-left-top').style.right = index * 100 + "%";
+    });
+});
+// ---------------------------------------------------------------------
+// Tìm kiếm - Hiển thị thanh tìm kiếm khi người dùng nhấn vào biểu tượng kính lúp
+
+searchButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Ngăn chặn hành động mặc định của nút
+    showSearchInput();
 });
 
-leftbtn.addEventListener("click", function() {
-    index = index - 1;
-    if (index < 0) { // Nếu chỉ số nhỏ hơn 0, quay lại hình ảnh cuối cùng
-        index = imgNumbers.length - 1;
-    }
-    document.querySelector(".Slider-content-left-top").style.transform = "translateX(-" + index * 100 + "%)";
-});
-
-
-// Hàm hiển thị thanh tìm kiếm
 function showSearchInput() {
     searchInput.style.width = '300px';
     searchInput.style.opacity = '1';
     searchInput.focus(); // Đưa con trỏ chuột vào ô nhập liệu
 }
 
-// Hàm xử lý sự kiện khi form đăng nhập được gửi
+// ---------------------------------------------------------------------
+// Đăng nhập - Xử lý form đăng nhập và lưu trạng thái đăng nhập
 async function handleSignIn(event) {
-    event.preventDefault(); // Ngăn chặn hành động mặc định của biểu mẫu
+    event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -50,43 +93,42 @@ async function handleSignIn(event) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
         });
-
         const result = await response.json();
-        handleSignInResponse(response, result);
+        console.log('Kết quả nhận được từ API:', result);
+
+        if (response.ok) {
+            // Lưu tất cả thông tin cần thiết vào localStorage
+            localStorage.setItem('userEmail', email); // Lưu email vào localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userId', result.user.id);
+            localStorage.setItem('fullname', result.user.fullname);
+            localStorage.setItem('email', result.user.email);
+            localStorage.setItem('phone', result.user.phone);
+            localStorage.setItem('address', result.user.address);
+            
+            // Cập nhật tên người dùng
+            updateUsernameDisplay();
+            window.location.href = "index.html"; // Chuyển hướng về trang chính
+        } else {
+            alert(result.message || 'Đăng nhập thất bại');
+        }
     } catch (error) {
+        console.error('Error:', error.message);
         alert(`Có lỗi xảy ra: ${error.message}`);
     }
 }
 
-// Hàm xử lý phản hồi khi đăng nhập thành công
-function handleSignInResponse(response, result) {
-    const userContainer = document.getElementById('userContainer');
-    const signupLink = document.querySelector('.signup');
-    const signinLink = document.querySelector('.signin');
-    const cartLink = document.querySelector('.auth-links a[href*="Cart.html"]');
 
-    if (response.ok) {
-        alert(result.message); // Hiển thị thông báo thành công
-        localStorage.setItem('isLoggedIn', 'true'); // Lưu trạng thái đăng nhập
+// Đăng xuất
+document.getElementById('logout').addEventListener('click', () => {
+    localStorage.removeItem('token'); // Xóa token
+    localStorage.removeItem('isLoggedIn'); // Xóa trạng thái đăng nhập
+    window.location.reload(); // Tải lại trang
+});
 
-        // Ẩn Sign Up và Sign In links
-        if (signupLink) signupLink.style.display = 'none';
-        if (signinLink) signinLink.style.display = 'none';
+// ---------------------------------------------------------------------
+// Lấy danh sách sản phẩm từ API và hiển thị chúng trong lưới sản phẩm
 
-        // Hiển thị userContainer
-        if (userContainer) userContainer.style.display = 'block';
-
-        // Giữ giỏ hàng hiển thị
-        if (cartLink) cartLink.style.display = 'inline-block';
-
-        // Chuyển hướng về trang chính
-        window.location.href = "index.html";
-    } else {
-        alert(result.message || 'Đăng nhập thất bại');
-    }
-}
-
-// Hàm lấy danh sách sản phẩm
 async function fetchProducts() {
     try {
         const response = await fetch('http://localhost:5000/api/products');
@@ -117,35 +159,39 @@ async function fetchProducts() {
     }
 }
 
-// Sự kiện khi trang được tải
+// ---------------------------------------------------------------------
+// Xử lý trạng thái đăng nhập khi trang được tải
 document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const signupLink = document.querySelector('.signup');
     const signinLink = document.querySelector('.signin');
     const userContainer = document.getElementById('userContainer');
-    const cartLink = document.querySelector('.auth-links a[href*="Cart.html"]');
-
+    
     // Kiểm tra trạng thái đăng nhập
     if (isLoggedIn === 'true') {
         if (signupLink) signupLink.style.display = 'none';
         if (signinLink) signinLink.style.display = 'none';
         if (userContainer) userContainer.style.display = 'block';
+        
+        // Chỉ gọi hàm fetchUserData nếu userId tồn tại trong localStorage
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            fetchUserData(); 
+        } else {
+            console.log('Không có userId để gọi API');
+        }
+
     } else {
         if (signupLink) signupLink.style.display = 'inline-block';
         if (signinLink) signinLink.style.display = 'inline-block';
         if (userContainer) userContainer.style.display = 'none';
+        
     }
 
     // Gán sự kiện cho form đăng nhập
     if (signinForm) {
         signinForm.addEventListener('submit', handleSignIn);
     }
-
-    // Đăng xuất
-    document.getElementById('logout').addEventListener('click', () => {
-        localStorage.removeItem('isLoggedIn');  // Xóa trạng thái đăng nhập
-        window.location.reload(); // Tải lại trang sau khi đăng xuất
-    });
 
     // Xử lý sự kiện mở/đóng dropdown
     const toggleDropdown = () => {
@@ -155,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', toggleDropdown);
 
     // Đóng menu dropdown khi nhấn ra ngoài
-    window.addEventListener("click", function (e) {
+    window.addEventListener("click", function(e) {
         if (!btn.contains(e.target) && !avatarMenu.contains(e.target)) {
             avatarMenu.style.display = 'none';
         }
@@ -164,13 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchProducts(); // Gọi hàm lấy danh sách sản phẩm
 });
 
-// Sự kiện khi nhấn vào nút kính lúp, hiển thị thanh tìm kiếm
-searchButton.addEventListener('click', (e) => {
-    e.preventDefault(); // Ngăn chặn hành động mặc định của nút
-    showSearchInput();
-});
+// ---------------------------------------------------------------------
+// Hiển thị danh sách sản phẩm dựa trên danh mục được chọn
+
 const categories = {
-    phones: ['iPhone', 'Samsung', 'Xiaomi' , 'Sony' ,'Huawei' , 'Poco' , 'Vsmart' , 'hoco' , 'blackberry' , 'oneplus'],
+    phones: ['iPhone', 'Samsung', 'Xiaomi', 'Sony', 'Huawei', 'Poco', 'Vsmart', 'hoco', 'blackberry', 'oneplus'],
     laptops: ['MacBook Pro', 'Dell XPS 13', 'HP Spectre x360'],
     watches: ['Apple Watch Series 7', 'Samsung Galaxy Watch 4'],
     tablets: ['iPad Pro', 'Samsung Galaxy Tab S7'],
@@ -178,7 +222,7 @@ const categories = {
     more: ['Extra Product 1', 'Extra Product 2']
 };
 
-// Ví dụ cách hiển thị danh sách sản phẩm
+// Hiển thị sản phẩm theo danh mục
 function displayProducts(category) {
     const productCatalogue = document.getElementById('productTable');
     productCatalogue.innerHTML = ''; // Xóa nội dung cũ
@@ -191,29 +235,10 @@ function displayProducts(category) {
     });
 }
 
+// Xử lý sự kiện khi nhấn vào các danh mục trong sidebar
 document.querySelectorAll('.product-sidebar li').forEach(item => {
     item.addEventListener('click', () => {
         const category = item.getAttribute('data-category');
-        const isExpanded = item.getAttribute('data-expanded') === 'true';
-
-        // Đóng tất cả các danh mục
-        document.querySelectorAll('.product-sidebar li').forEach(li => {
-            li.setAttribute('data-expanded', 'false'); // Đặt trạng thái thành đóng
-            li.classList.remove('active'); // Bỏ lớp active nếu có
-        });
-
-        // Nếu danh mục không được mở, mở nó
-        if (!isExpanded) {
-            item.setAttribute('data-expanded', 'true'); // Đặt trạng thái thành mở
-            item.classList.add('active'); // Thêm lớp active để thay đổi kiểu dáng
-            displayProducts(category); // Hiển thị sản phẩm theo danh mục
-        } else {
-            // Nếu danh mục đã mở, đóng nó
-            item.setAttribute('data-expanded', 'false');
-            item.classList.remove('active'); // Bỏ lớp active
-            const productCatalogue = document.getElementById('productTable');
-            productCatalogue.innerHTML = ''; // Xóa danh sách sản phẩm
-        }
+        displayProducts(category); // Hiển thị sản phẩm theo danh mục
     });
 });
-

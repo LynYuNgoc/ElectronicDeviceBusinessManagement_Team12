@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Assets/Style/User/Profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <title>Hồ Sơ Người Dùng</title>
+</head>
+
+<header>
+    <div class="container">
+        <!-- Logo bên trái -->
+        <div class="logo">
+            <a href="../../Pages/User/Index.html">
+                <img src="/Front-end/Image/Logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <!-- Thanh search ở giữa -->
+        <div class="search-bar">
+            <input class="field" type="text" placeholder="Search..."/>
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <!-- Các liên kết và biểu tượng bên phải -->
+        <div class="header-menu">
+            <ul>
+                <li><a href="#">Đà Nẵng <i class="fa-solid fa-sort-down"></i></a></li>
+                <li><a href="#">Lịch sử mua hàng</a></li>
+                <li class="cart-icon">
+                    <a href="../../Pages/User/Cart.html">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>
+            <div id="userContainer" style="display: none;">
+                <div class="profile-dropdown">
+                    <div class="profile-dropdown-btn">
+                        <div class="profile-img">
+                            <i class="fa-solid fa-circle"></i>
+                        </div>
+                        <div class="User">
+                            <span id="fullname" style="cursor: pointer;"></span>
+                            <i class="fa-solid fa-angle-down"></i> <!-- Để biểu tượng bên ngoài span -->
+                        </div>
+                    </div>
+                    
+            
+                    <ul id="avatarMenu" class="profile-dropdown-list" style="display: none;">
+                        <li class="profile-dropdown-list-item">
+                            <a href="../../Pages/User/Profile.html">
+                                <i class="fa-regular fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="profile-dropdown-list-item">
+                            <a href="../../Pages/User/Orders.html">
+                                <i class="fa-solid fa-box"></i>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="profile-dropdown-list-item">
+                            <a href="#" id="logout">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>          
+        </div>
+    </div>
+
+    
+</header>
+
+<body>
+    <div class="container">   
+        <section class="profile-info">
+            <div class="profile-avatar">
+                <img src="path/to/avatar.jpg" alt="Avatar" id="userAvatar">
+            </div>
+            <div class="profile-details">
+                <h2 id="fullname">Tên đầy đủ: <span></span></h2>
+                <p id="username">Tên người dùng: <span></span></p>
+                <p id="email">Email: <span></span></p>
+                <p id="phone">Số điện thoại: <span></span></p>
+                <p id="address">Địa chỉ: <span></span></p>
+                <button id="editProfile">Chỉnh sửa thông tin</button>
+            </div>
+        </section>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Tech Store - All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script src="../../Assets/Scrips/User/Profile.js"></script>
+</body>
+
+</html>

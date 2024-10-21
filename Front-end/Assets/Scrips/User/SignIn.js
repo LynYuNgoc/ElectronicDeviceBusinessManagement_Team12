@@ -21,7 +21,14 @@ document.getElementById('signinForm').addEventListener('submit', async function(
             // Lưu thông tin người dùng vào localStorage
             const user = result.user; // Giả sử kết quả trả về có thông tin người dùng
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('isLoggedIn', 'true'); 
 
+            // Cập nhật tên người dùng trong giao diện
+            const fullnameElement = document.getElementById('fullname');
+            if (fullnameElement) {
+                fullnameElement.textContent = user.fullname; // Gán tên đầy đủ
+            }
+            
             // Chuyển hướng đến trang chính hoặc trang khác
             window.location.href = "index.html"; // Thay đổi đường dẫn theo trang của bạn
         } else {

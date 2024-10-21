@@ -60,7 +60,6 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-
 // GET request để lấy danh sách người dùng
 router.get('/', async (req, res) => {
     try {
@@ -71,6 +70,21 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: 'Lỗi khi lấy danh sách người dùng', error });
     }
 });
+
+// API lấy thông tin người dùng dựa vào email
+app.get('/api/user/:email', async (req, res) => {
+    const { email } = req.params;
+    try {
+        const user = await User.findOne({ email: email }); // Tìm người dùng qua email
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user); // Trả về thông tin người dùng
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching user data', error });
+    }
+});
+
 
 // DELETE request để xóa người dùng
 router.delete('/users/:id', async (req, res) => {
@@ -86,8 +100,6 @@ router.delete('/users/:id', async (req, res) => {
         res.status(500).json({ message: 'Có lỗi xảy ra khi xóa người dùng.', error });
     }
 });
-
-
 
 // PATCH request để vô hiệu hóa người dùng
 router.patch('/users/disable/:id', async (req, res) => {

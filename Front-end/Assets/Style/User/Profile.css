@@ -1,0 +1,164 @@
+/* Đặt lại một số kiểu mặc định */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex; /* Sử dụng Flexbox */
+    flex-direction: column; /* Đặt hướng cột cho các phần tử con */
+    min-height: 100vh; /* Chiều cao tối thiểu của body bằng chiều cao cửa sổ */
+}
+
+/* Style cho header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1; /* Cho phép phần này mở rộng để chiếm không gian còn lại */
+}
+
+.logo img {
+    height: 50px; /* Chiều cao logo */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    background-color: #555;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.header-menu {
+    position: relative;
+}
+
+.header-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-menu li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.header-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Style cho dropdown menu */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-dropdown-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none; /* Ẩn mặc định */
+}
+
+.profile-dropdown-list-item {
+    padding: 10px;
+}
+
+.profile-dropdown-list-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style cho phần thông tin hồ sơ */
+.profile-info {
+    display: flex;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    margin-right: 20px;
+}
+
+.profile-avatar img {
+    width: 100px; /* Kích thước hình ảnh đại diện */
+    height: 100px;
+    border-radius: 50%; /* Hình tròn */
+}
+
+.profile-details {
+    width: 300px;
+    height: auto;
+}
+
+.profile-details h2,
+.profile-details p {
+    margin: 5px 0;
+}
+
+#editProfile {
+    background-color: #4CAF50; /* Màu xanh lá cây */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editProfile:hover {
+    background-color: #45a049; /* Hiệu ứng hover */
+}
+/*--------------------------------footer--------------------------------*/
+
+/* Footer luôn nằm ở cuối */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* Đẩy footer xuống cuối cùng */
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+}

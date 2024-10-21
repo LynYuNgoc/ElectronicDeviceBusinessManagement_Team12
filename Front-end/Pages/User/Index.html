@@ -11,8 +11,6 @@
 
 </head>
 <body>
-
-    <!-- Header Section -->
     <!-- Header Section -->
 <header>
     <div class="container">
@@ -48,8 +46,7 @@
             </div>
         </div>
     </div>
-</header>
-        
+
     <!-- User Login/Avatar Menu -->
     <div id="userContainer" style="display: none;">
         <div class="profile-dropdown">
@@ -57,8 +54,12 @@
                 <div class="profile-img">
                     <i class="fa-solid fa-circle"></i>
                 </div>
-                <span id="username" style="cursor: pointer;">Username <i class="fa-solid fa-angle-down"></i></span>
+                <div class="User">
+                    <span id="fullname" style="cursor: pointer;"></span>
+                    <i class="fa-solid fa-angle-down"></i> <!-- Để biểu tượng bên ngoài span -->
+                </div>
             </div>
+            
     
             <ul id="avatarMenu" class="profile-dropdown-list" style="display: none;">
                 <li class="profile-dropdown-list-item">
@@ -82,6 +83,8 @@
             </ul>
         </div>
     </div>
+</header>
+        
     
     <!-- Banner Section -->
     <section class="banner">
@@ -128,11 +131,10 @@
                             </div>
                             <div class="Slider-content-left-bottom">
                                 <li>Tiêu đề 1</li>
-                                <li>Tiêu đề 1</li>
-                                <li>Tiêu đề 1</li>
-                                <li>Tiêu đề 1</li>
-                                <li>Tiêu đề 1</li>
-                                <li>Tiêu đề 1</li>
+                                <li>Tiêu đề 2</li>
+                                <li>Tiêu đề 3</li>
+                                <li>Tiêu đề 4</li>
+                                <li>Tiêu đề 5</li>
                             </div>
                         </div>
                         <div class="Slider-content-Right">
@@ -145,23 +147,50 @@
             </div>            
         </div>
     </section>
-
-                <!-- Featured Products Section -->
-                <section class="featured-products">
+    
+        <!------------------------------------------featured-products-------------------------------------------->
+        <section class="featured-products">
+            <div class="container">
+                <div class="slider-product-one-content-title">
                     <h3>Sản Phẩm Nổi Bật</h3>
-                    <!-- Swiper Container -->
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper" id="productGrid">
-                            <!-- Các sản phẩm sẽ được thêm vào đây thông qua JavaScript -->
-                        </div>
-                        <!-- Nút điều hướng -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <!-- Pagination (nếu cần) -->
-                        <div class="swiper-pagination"></div>
+                </div>
+                <div class="slider-product-one-content-title-items">
+                    <div class="product-item">
+                        <img src="" alt="Sản phẩm 1">
+                        <h4>Tên sản phẩm 1</h4>
+                        <p class="price">Giá: $100</p>
                     </div>
-                </section>
-    </main>
+                    <div class="product-item">
+                        <img src="" alt="Sản phẩm 2">
+                        <h4>Tên sản phẩm 2</h4>
+                        <p class="price">Giá: $200</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="" alt="Sản phẩm 3">
+                        <h4>Tên sản phẩm 3</h4>
+                        <p class="price">Giá: $300</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="" alt="Sản phẩm 4">
+                        <h4>Tên sản phẩm 4</h4>
+                        <p class="price">Giá: $400</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="" alt="Sản phẩm 5">
+                        <h4>Tên sản phẩm 5</h4>
+                        <p class="price">Giá: $500</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Swiper Container -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="productGrid">
+                    <!-- Các sản phẩm sẽ được thêm vào đây thông qua JavaScript -->
+                </div>
+            </div>
+        </section>
 
     <!-- Footer Section -->
     <footer>
